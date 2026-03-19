@@ -1,27 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitMage</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitMage | Summon Your Coder</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="main-container">
-        
-        <h1 data-shadow='GitMage!'>GitMage!</h1>
-        
-        <div class="input-area">
-            <input type="text" id="player1" placeholder="Mage 1 (e.g., torvalds)" autocomplete="off">
-            <span class="vs">VS</span>
-            <input type="text" id="player2" placeholder="Mage 2 (e.g., octocat)" autocomplete="off">
-        </div>
-        
-        <button id="summon-btn">BATTLE</button>
+  <div id="transition-curtain"></div>
 
-    </div>
+  <section id="landing-page" class="view active">
+    <div class="main-container">
+      
+      <h1 data-shadow='GitMage!'>GitMage!</h1>
+      
+      <div class="input-area">
+        <input type="text" id="player1" placeholder="Mage 1 (e.g., torvalds)" autocomplete="off">
+        <span class="vs">VS</span>
+        <input type="text" id="player2" placeholder="Mage 2 (e.g., octocat)" autocomplete="off">
+      </div>
+      
+      <button id="summon-btn">BATTLE</button>
 
-    <script src="app.js"></script>
+    </div>
+  </section>
+
+  <section id="battleground" class="view">
+    <div class="main-container">
+      
+      <div class="arena-block" id="arena">
+        <h2 class="battle-title" id="battle-header">Summoning...</h2>
+        
+        <div class="battle-stage" id="battle-stage">
+          
+          <div class="mage-card" id="mage1-card">
+            <div class="hp-container"><div class="hp-fill" id="mage1-hp-bar"></div></div>
+            <h3 id="mage1-name">Player 1</h3>
+            <div class="stats" id="mage1-stats">HP: ? | ATK: ?</div>
+            
+            <div class="stickman-wrapper" id="mage1-stickman">
+              <img id="mage1-avatar" class="mage-head" src="" alt="Head" style="display: none;">
+              <svg class="mage-body" viewBox="0 0 100 120" style="display: none;" id="mage1-body">
+                <line x1="50" y1="0" x2="50" y2="60" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="30" y2="110" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="70" y2="110" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="20" x2="20" y2="50" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="20" x2="80" y2="50" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="80" y1="10" x2="80" y2="110" stroke="#8D6E63" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="80" cy="10" r="8" fill="#39ff14" class="staff-gem" id="mage1-gem"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="battle-vs" id="vs-badge">VS</div>
+
+          <div class="mage-card" id="mage2-card">
+            <div class="hp-container"><div class="hp-fill" id="mage2-hp-bar"></div></div>
+            <h3 id="mage2-name">Player 2</h3>
+            <div class="stats" id="mage2-stats">HP: ? | ATK: ?</div>
+            
+            <div class="stickman-wrapper" id="mage2-stickman">
+              <img id="mage2-avatar" class="mage-head" src="" alt="Head" style="display: none;">
+              <svg class="mage-body" viewBox="0 0 100 120" style="display: none;" id="mage2-body">
+                <line x1="50" y1="0" x2="50" y2="60" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="30" y2="110" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="70" y2="110" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="20" x2="20" y2="50" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="20" x2="80" y2="50" stroke="#ebe9e0" stroke-width="6" stroke-linecap="round"/>
+                <line x1="80" y1="10" x2="80" y2="110" stroke="#8D6E63" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="80" cy="10" r="8" fill="#ff4757" class="staff-gem" id="mage2-gem"/>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="combat-log" id="combat-log">The mages are preparing their spells...</div>
+        <button id="reset-btn" style="display: none;">BACK TO SUMMONING</button>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="app.js"></script>
 </body>
 </html>
